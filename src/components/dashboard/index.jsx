@@ -1,20 +1,20 @@
 import {
   AddShoppingCartOutlined,
-  AddShoppingCartRounded,
   DownloadOutlined,
+  Inventory2Outlined,
   PointOfSaleSharp,
   RemoveRedEye,
 } from "@mui/icons-material";
 import { Box, Button, Typography, useTheme } from "@mui/material";
+import { ResponsiveBar } from "@nivo/bar";
+import { ResponsivePie } from "@nivo/pie";
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { barData, pieData } from "../../data";
 import { tokens } from "../../theme";
 import StatBox from "../StatBox";
 import Header from "../global/Header";
-import { useSelector } from "react-redux";
-import { ResponsiveBar } from "@nivo/bar";
-import { ResponsivePie } from "@nivo/pie";
-import { barData, pieData } from "../../data";
-import { Link } from "react-router-dom";
 
 function Dashboard() {
   const theme = useTheme();
@@ -120,7 +120,7 @@ function Dashboard() {
         >
           <StatBox
             icon={
-              <AddShoppingCartRounded
+              <Inventory2Outlined
                 sx={{ fontSize: "26px", color: colors.greenAccent[600] }}
               />
             }
