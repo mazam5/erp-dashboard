@@ -363,10 +363,14 @@ function Products() {
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button color="inherit" onClick={() => setDeleteDialog(false)}>
+          <Button
+            color="inherit"
+            variant="outlined"
+            onClick={() => setDeleteDialog(false)}
+          >
             Cancel
           </Button>
-          <Button color="secondary" onClick={deleteProduct}>
+          <Button type="submit" variant="contained" onClick={deleteProduct}>
             Delete
           </Button>
         </DialogActions>

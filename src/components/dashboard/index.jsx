@@ -362,55 +362,6 @@ function Dashboard() {
             alignItems="center"
           >
             <Typography variant="h4" fontWeight="bold" color={colors.grey[100]}>
-              Recent Orders
-            </Typography>
-            <Link to="/orders" style={{ color: "inherit" }}>
-              <Button
-                variant="contained"
-                sx={{
-                  background: colors.blueAccent[700],
-                  color: colors.grey[100],
-                  fontSize: "14px",
-                  fontWeight: "bold",
-                  padding: "10px 20px",
-                }}
-              >
-                View All
-              </Button>
-            </Link>
-          </Box>
-          {orders.slice(0, 3).map((order, index) => (
-            <Box
-              key={index}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              bgcolor={colors.primary[400]}
-              borderRadius="10px"
-              p="10px"
-              my="10px"
-            >
-              <Box>
-                <Typography variant="h5" color={colors.grey[100]}>
-                  {order.items.map((item) => item.name).join(", ")}
-                </Typography>
-                <Typography variant="h6" color={colors.grey[100]}>
-                  {order.customer} - {order.deliveryDate}
-                </Typography>
-              </Box>
-              <Typography variant="h5" color={colors.grey[100]}>
-                {order.total}
-              </Typography>
-            </Box>
-          ))}
-        </Box>
-        <Box width="100%" ml="10px">
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Typography variant="h4" fontWeight="bold" color={colors.grey[100]}>
               Top Selling Products
             </Typography>
             <Link to="/products" style={{ color: "inherit" }}>
@@ -449,6 +400,55 @@ function Dashboard() {
               </Box>
               <Typography variant="h5" color={colors.grey[100]}>
                 {product.price}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+        <Box width="100%" ml="10px">
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Typography variant="h4" fontWeight="bold" color={colors.grey[100]}>
+              Recent Orders
+            </Typography>
+            <Link to="/orders" style={{ color: "inherit" }}>
+              <Button
+                variant="contained"
+                sx={{
+                  background: colors.blueAccent[700],
+                  color: colors.grey[100],
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  padding: "10px 20px",
+                }}
+              >
+                View All
+              </Button>
+            </Link>
+          </Box>
+          {orders.slice(0, 3).map((order, index) => (
+            <Box
+              key={index}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              bgcolor={colors.primary[400]}
+              borderRadius="10px"
+              p="10px"
+              my="10px"
+            >
+              <Box>
+                <Typography variant="h5" color={colors.grey[100]}>
+                  {order.items.map((item) => item.name).join(", ")}
+                </Typography>
+                <Typography variant="h6" color={colors.grey[100]}>
+                  {order.customer} - {order.deliveryDate}
+                </Typography>
+              </Box>
+              <Typography variant="h5" color={colors.grey[100]}>
+                {order.total}
               </Typography>
             </Box>
           ))}

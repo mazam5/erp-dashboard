@@ -28,6 +28,8 @@ function MyCalendar() {
         <Box
           flex="1 1 20%"
           bgcolor={colors.primary[400]}
+          height="75vh"
+          sx={{ overflowY: "auto" }}
           p="15px"
           borderRadius={"4px"}
         >
@@ -48,7 +50,7 @@ function MyCalendar() {
                 <ListItemText
                   primary={
                     <Typography variant="h5" fontWeight={"bold"}>
-                      {event.items.map((item) => item.name).join(", ")} -{" "}
+                      {event.items.map((item, index) => item.name).join(", ")} -{" "}
                       {event.customer}
                     </Typography>
                   }
@@ -66,10 +68,12 @@ function MyCalendar() {
             ))}
           </List>
         </Box>
+
         <Box flex="1 1 100%" ml="15px">
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
             initialView="dayGridMonth"
+            height={"75vh"}
             headerToolbar={{
               left: "prev,next today",
               center: "title",
