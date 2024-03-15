@@ -62,15 +62,15 @@ The application is a simplified UI for the ERP System. It allows users to intera
   - The products can be added, edited, and deleted.
   - To add a new product, click on the "Add Product" button.
   <p>
-    <img width="400" src="/screenshots/gifs/add-product.gif">
+    <img src="/screenshots/gifs/add-product.gif">
    </p>
   - To edit a product, click on the Pencil Icon button on a product's row.
   <p>
-   <img width="400" src="/screenshots/gifs/edit-product.gif">
+   <img src="/screenshots/gifs/edit-product.gif">
    </p>
   - To delete a product, click on the Trash Icon button on a product's row.
   <p>
-    <img width="400" src="/screenshots/gifs/delete-product.gif">
+    <img src="/screenshots/gifs/delete-product.gif">
     </p>
 
 - Orders: The orders page displays the list of orders. It allows users to view the details of an order, edit an existing order status, and delete an order.
@@ -78,15 +78,15 @@ The application is a simplified UI for the ERP System. It allows users to intera
   - The orders can be edited and deleted.
   - To view the details of an order, click on the "View" button on an order's row.
   <p>
-     <img width="400" src="/screenshots/gifs/view-order.gif">
+     <img src="/screenshots/gifs/view-order.gif">
      </p>
   - To edit an order, click on the Pencil Icon button on an order's row.
   <p>
-    <img width="400" src="/screenshots/gifs/edit-order.gif">
+    <img src="/screenshots/gifs/edit-order.gif">
     </p>
   - To delete an order, click on the Trash Icon button on an order's row.
   <p>
-    <img width="400" src="/screenshots/gifs/delete-order.gif">
+    <img src="/screenshots/gifs/delete-order.gif">
     </p>
 
 - Calendar: The calendar page displays the calendar of deliveries. It allows users to view the details of a delivery.
