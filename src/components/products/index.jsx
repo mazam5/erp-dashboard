@@ -1,8 +1,4 @@
-import {
-  AddCircleOutlineOutlined,
-  DeleteOutline,
-  EditOutlined,
-} from "@mui/icons-material";
+import { AddOutlined, DeleteOutline, EditOutlined } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -19,7 +15,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // user defined components
@@ -47,6 +43,9 @@ function Products() {
     stock: undefined,
     id: undefined,
   });
+  useEffect(() => {
+    console.log(id);
+  }, [id]);
   const addAProduct = () => {
     if (
       product.name === "" ||
@@ -130,14 +129,15 @@ function Products() {
       <Box display="flex" justifyContent="space-between">
         <Header title="Products" subtitle="Manage your products here" />
         <Box display="flex" alignItems="center">
-          <IconButton
-            color="inherit"
-            onClick={() => {
-              setAddDialog(true);
-            }}
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ fontWeight: 600 }}
+            startIcon={<AddOutlined />}
+            onClick={() => setAddDialog(true)}
           >
-            <AddCircleOutlineOutlined />
-          </IconButton>
+            Add Product
+          </Button>
         </Box>
       </Box>
       <Box
@@ -245,10 +245,19 @@ function Products() {
             />
           </DialogContent>
           <DialogActions>
-            <Button color="inherit" onClick={() => setAddDialog(false)}>
+            <Button
+              color="inherit"
+              variant="outlined"
+              onClick={() => setAddDialog(false)}
+            >
               Cancel
             </Button>
-            <Button type="submit" color="secondary" onClick={addAProduct}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary"
+              onClick={addAProduct}
+            >
               Add
             </Button>
           </DialogActions>
@@ -315,6 +324,7 @@ function Products() {
           <DialogActions>
             <Button
               color="inherit"
+              variant="outlined"
               onClick={() => {
                 setEditDialog(false);
                 setProduct({
@@ -328,7 +338,12 @@ function Products() {
             >
               Cancel
             </Button>
-            <Button type="submit" color="secondary" onClick={editProduct}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="secondary"
+              onClick={editProduct}
+            >
               Save
             </Button>
           </DialogActions>

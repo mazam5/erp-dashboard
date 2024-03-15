@@ -12,7 +12,6 @@ import {
   DialogTitle,
   FormControl,
   IconButton,
-  InputLabel,
   MenuItem,
   Select,
   Typography,
@@ -20,7 +19,7 @@ import {
 } from "@mui/material";
 // import useMediaQuery from "@mui/material/useMediaQuery";
 import { DataGrid } from "@mui/x-data-grid";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // user defined components
@@ -48,6 +47,9 @@ function Orders() {
     "Out for Delivery",
     "Delivered",
   ];
+  useEffect(() => {
+    console.log(id);
+  }, [id]);
   const columns = [
     { field: "orderId", headerName: "Order ID", flex: 1 },
     { field: "customer", headerName: "Customer", flex: 1 },
@@ -91,8 +93,6 @@ function Orders() {
                 setEditDialog(true);
                 setId(params.row.orderId);
                 setOrder(params.row);
-                console.log("order", order);
-                console.log(params.row.orderId);
               }}
             >
               <EditOutlined />
@@ -198,7 +198,10 @@ function Orders() {
             <Box>
               {order.items.map((item, index) => (
                 <Box key={index}>
-                  {item.name} ({item.quantity})
+                  <Typography key={index}>
+                    {index + 1}. {item.name} ({item.quantity})
+                    {item.price ? ` -  ₹${item.price}` : ""}
+                  </Typography>
                 </Box>
               ))}
             </Box>
@@ -208,6 +211,7 @@ function Orders() {
         </DialogContent>
         <DialogActions>
           <Button
+            variant="outlined"
             color="inherit"
             onClick={() => {
               setViewDialog(false);
@@ -226,15 +230,15 @@ function Orders() {
           setEditDialog(false);
         }}
       >
-        <DialogTitle>Edit Order</DialogTitle>
-        <DialogContent>
-          <Typography>Order ID: {order.orderId}</Typography>
-          <Typography>Customer: {order.customer}</Typography>
-          <Typography>Order Date: {order.orderDate}</Typography>
-          <Typography>Delivery Date: {order.deliveryDate}</Typography>
-          <FormControl fullWidth>
-            <InputLabel>Status</InputLabel>
+        <FormControl>
+          <DialogTitle>Edit Order</DialogTitle>
+          <DialogContent>
+            <Typography>{order.orderId}</Typography>
+            <Typography>{order.customer}</Typography>
+            <Typography>Order Date: {order.orderDate}</Typography>
+            <Typography>Delivery Date: {order.deliveryDate}</Typography>
             <Select
+              sx={{ mt: 2 }}
               value={order.status || ""}
               onChange={(e) => {
                 setOrder({ ...order, status: e.target.value });
@@ -246,26 +250,29 @@ function Orders() {
                 </MenuItem>
               ))}
             </Select>
-          </FormControl>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            color="inherit"
-            onClick={() => {
-              setEditDialog(false);
-            }}
-          >
-            Cancel
-          </Button>
-          <Button
-            color="secondary"
-            onClick={() => {
-              editOrder();
-            }}
-          >
-            Save
-          </Button>
-        </DialogActions>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              color="inherit"
+              variant="outlined"
+              onClick={() => {
+                setEditDialog(false);
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              type="submit"
+              color="secondary"
+              onClick={() => {
+                editOrder();
+              }}
+            >
+              Save
+            </Button>
+          </DialogActions>
+        </FormControl>
       </Dialog>
 
       {/* Delete Dialog */}
@@ -281,14 +288,15 @@ function Orders() {
         </DialogContent>
         <DialogActions>
           <Button
-            color="secondary"
+            color="inherit"
+            variant="outlined"
             onClick={() => {
               setDeleteDialog(false);
             }}
           >
             Cancel
           </Button>
-          <Button color="inherit" onClick={deleteOrder}>
+          <Button variant="contained" onClick={deleteOrder}>
             Delete
           </Button>
         </DialogActions>

@@ -38,7 +38,7 @@ function ResponsiveAppBar() {
       position="static"
       color="inherit"
       sx={{
-        ".active": { backgroundColor: colors.blueAccent[700] },
+        ".active": { backgroundColor: colors.blueAccent[700], fontWeight: 700 },
       }}
     >
       <Container maxWidth="xl">
