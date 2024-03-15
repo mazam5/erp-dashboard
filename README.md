@@ -119,3 +119,7 @@ The application is a simplified UI for the ERP System. It allows users to intera
 <img alt="screenshots" src="/screenshots/dark-mode/10.calendar.png">
 </div>
 </body>
+
+## Author
+
+👤 **[Mohammed Azam](https://linkedin.com/in/azam5)**
